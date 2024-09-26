@@ -1,77 +1,436 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Welcome</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="page2.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/page2.html" aria-current="page">Other page</a>
-      <a href="#">忘記密碼？</a>
-    </nav>
-    <main>
-      <h1>Welcome</h1>
-      <u1>
-        <li style="--clr: #2483ff;">
-          <a href="#">
-            <i class="fa-solid fa -house"></i>
-            <span class=".item-list ">Home</span>
-        </a>
-      </li>
+<html lang="zh-Hant">
 
-      <!DOCTYPE html>
-<html lang="en">
-
-    </html>
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-    content="width-device-width">,
-    <link rel="stylesheet" href="fireworks
-    css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 和鬧鐘功能示例</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
 
-<script>
-</script>
-<script>
-</script>
-<script>
-</script>
-<title>fireworks</title>
+        header {
+            width: 100%;
+            background-color: #373737;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            color: #ffffff;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px 25px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #2196f3;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-button:hover {
+            background-color: #1976d2;
+        }
+
+        .alarm-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .alarm-input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .set-alarm-button {
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .set-alarm-button:hover {
+            background-color: #388e3c;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 30px;
+        }
+
+        #css {
+            background-color: blue;
+        }
+
+        #html {
+            background-color: greenyellow;
+        }
+
+        #js {
+            background-color: orangered;
+        }
+
+        #php {
+            background-color: brown;
+        }
+
+        #sql {
+            background-color: burlywood;
+        }
+
+        /* 闹钟图像样式 */
+        .alarm-image {
+            display: none;
+            width: 100px;
+            margin-top: 20px;
+        }
+
+        /* 学习历史记录样式 */
+        .history-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .history-item {
+            margin: 5px 0;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* 用户头像样式 */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .avatar {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .online-status {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: green;
+            border: 2px solid white;
+        }
+
+        .offline {
+            background-color: red;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .username {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .status {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* 设置部分样式 */
+        .settings-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #2196f3;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            color: #2196f3;
+            transition: background-color 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #e0f7fa;
+        }
+
+        .tab.active {
+            font-weight: bold;
+            border-bottom: 2px solid #4caf50;
+        }
+
+        .section {
+            display: none; /* 默认隐藏 */
+        }
+
+        .section.active {
+            display: block; /* 显示当前活动的部分 */
+        }
+    </style>
 </head>
-<body></body>
-<!--tiktok meowish-->
-<div style="height: 0;width:0;"
-position: absolute;visibility:hidden>
-</div>
-      <li style="--clr:\;\:#fff200;">
-        <a href="#">
-          <i class="fa-solid fa user"></i>
-          <span>Profile</span>
-        </a></li>
-        <li style="--clr: #ff253f;">
-          <a href="#">
-            <i class="=fa-solid fa heart"></i>
-            <span>Likes</span>
-          </a>
-        </li>
-        <li style="--clr: #25d366;">
-          <a href="#">
-            ,<i class="da solid fa gear"></i>
-            <span>Setting</span>
-          </a>
-        </li>
-        <li style="--clr: #f32ec8;">
-          <a href="#">
-            <i class="fa solid fa-magnify-glass"></i>
-            <span>Search</span>
-          </a>
-      </li>
-      </u1>
-      
-    </main>
-  </body>
+
+<body>
+    <header>
+        <h1 class="header-title">歡迎來到學習基地！</h1>
+        <nav>
+            <a href="#css">CSS</a>
+            <a href="#html">HTML</a>
+            <a href="#js">JS</a>
+            <a href="#php">PHP</a>
+            <a href="#sql">SQL</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="搜尋...">
+            <button class="search-button">搜尋</button>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="avatar">
+            <img src="https://via.placeholder.com/150" alt="用户头像"> <!-- 替换为用户头像的URL -->
+            <div class="online-status offline"></div> <!-- 默认离线状态 -->
+        </div>
+        <div class="user-info">
+            <p class="username">用户名称</p>
+            <p class="status">状态: <span id="online-text">离线</span></p>
+        </div>
+    </div>
+
+    <div class="settings-container">
+        <h3>设置</h3>
+        <div class="tabs">
+            <div class="tab active" data-tab="history">历史记录</div>
+            <div class="tab" data-tab="alarm">闹钟</div>
+            <div class="tab" data-tab="info">信息查看</div>
+            <div class="tab" data-tab="faq">解答问题</div>
+        </div>
+
+        <div id="history" class="section active">
+            <h3>学习历史记录</h3>
+            <input type="text" id="learning-input" placeholder="输入学习内容">
+            <button id="add-learning" class="set-alarm-button">添加到历史记录</button>
+            <div id="history-list"></div> <!-- 历史记录列表 -->
+        </div>
+
+        <div id="alarm" class="section">
+            <h3>闹钟设置</h3>
+            <input type="time" id="alarm-time" class="alarm-input">
+            <button class="set-alarm-button" id="set-alarm">设置闹钟</button>
+            <img id="alarm-image" class="alarm-image" src="https://example.com/alarm-clock.png" alt="闹钟图像"> <!-- 替换为您的闹钟图像URL -->
+        </div>
+
+        <div id="info" class="section">
+            <h3>信息查看</h3>
+            <p>这是一些基本信息...</p>
+        </div>
+
+        <div id="faq" class="section">
+            <h3>解答问题</h3>
+            <p>如果您有问题，请在此处输入：</p>
+            <input type="text" id="faq-input" placeholder="输入问题内容">
+            <button id="submit-question" class="set-alarm-button">提交问题</button>
+            <div id="faq-response"></div> <!-- 问题回答列表 -->
+        </div>
+    </div>
+
+    <section id="css">
+        <h2>CSS</h2>
+        <p>階層樣式表（Cascading Style Sheets）</p>
+    </section>
+
+    <section id="html">
+        <h2>HTML</h2>
+        <p>超文本標記語言（HyperText Markup Language）</p>
+    </section>
+
+    <section id="js">
+        <h2>JavaScript</h2>
+        <p>客戶端腳本語言</p>
+    </section>
+
+    <section id="php">
+        <h2>PHP</h2>
+        <p>超文本預處理器（Hypertext Preprocessor）</p>
+    </section>
+
+    <section id="sql">
+        <h2>SQL</h2>
+        <p>結構化查詢語言（Structured Query Language）</p>
+    </section>
+
+    <script>
+        const alarmButton = document.getElementById('set-alarm');
+        const alarmTimeInput = document.getElementById('alarm-time');
+        const historyList = document.getElementById('history-list');
+        const learningInput = document.getElementById('learning-input');
+        const addLearningButton = document.getElementById('add-learning');
+
+        // 存储学习历史记录
+        const learningHistory = [];
+
+        alarmButton.addEventListener('click', () => {
+            const alarmTime = alarmTimeInput.value;
+            if (alarmTime) {
+                alert(`闹钟设置为 ${alarmTime}`);
+            } else {
+                alert('请选择闹钟时间');
+            }
+        });
+
+        addLearningButton.addEventListener('click', () => {
+            const learningContent = learningInput.value;
+            if (learningContent) {
+                // 添加到历史记录
+                learningHistory.push(learningContent);
+                updateHistoryDisplay();
+                learningInput.value = ''; // 清空输入框
+            } else {
+                alert('请输入学习内容');
+            }
+        });
+
+        function updateHistoryDisplay() {
+            // 清空当前历史记录显示
+            historyList.innerHTML = '';
+            // 更新历史记录显示
+            learningHistory.forEach((content, index) => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.textContent = `${index + 1}: ${content}`;
+                historyList.appendChild(historyItem);
+            });
+        }
+
+        // 选项卡功能
+        const tabs = document.querySelectorAll('.tab');
+        const sections = document.querySelectorAll('.section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+
+                // 切换选项卡
+                tabs.forEach(t => t.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // 在线状态模拟
+        const onlineStatusIndicator = document.querySelector('.online-status');
+        const onlineText = document.getElementById('online-text');
+
+        // 模拟在线状态切换
+        setInterval(() => {
+            const isOnline = Math.random() > 0.5; // 随机生成在线状态
+            if (isOnline) {
+                onlineStatusIndicator.classList.remove('offline');
+                onlineText.textContent = '在线';
+            } else {
+                onlineStatusIndicator.classList.add('offline');
+                onlineText.textContent = '离线';
+            }
+        }, 3000); // 每3秒切换一次状态
+
+        // 解答问题功能
+        const faqInput = document.getElementById('faq-input');
+        const submitQuestionButton = document.getElementById('submit-question');
+        const faqResponse = document.getElementById('faq-response');
+
+        submitQuestionButton.addEventListener('click', () => {
+            const question = faqInput.value;
+            if (question) {
+                // 这里可以添加逻辑来处理问题，比如显示问题或调用API
+                faqResponse.innerHTML += `<div>${question}</div>`;
+                faqInput.value = ''; // 清空输入框
+            } else {
+                alert('请输入问题内容');
+            }
+        });
+    </script>
+</body>
+
 </html>

@@ -1,51 +1,59 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, hsl(263, 95%, 14%), #6b4b91); /* 從左到右的漸變 */
+  background: linear-gradient(to right, hsl(263, 95%, 14%), #6b4b91); /* 从左到右的渐变 */
   margin: 0;
   padding: 20px;
-  display: flex;
+
   justify-content: center;
   align-items: center;
   min-height: 100vh;
- }
- .wrapper{
-   width: 520px;
-   background-color: linear-gradient(to right, hsl(263, 95%, 14%), #6b4b91); /* 從左到右的漸變 */ ;
-   color:aliceblue;
-   border-radius: 10px;
- padding: 30px 40px;
- }
-.wrapper h1{
+}
+
+.wrapper {
+  width: 520px;
+  background: linear-gradient(to right, hsl(263, 95%, 14%), #6b4b91); /* 从左到右的渐变 */
+  color: aliceblue;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.wrapper h1 {
   font-size: 36px;
   text-align: center;
 }
-.wrapper-box input{
-  width:100%;
-  height: 100%;
+
+.wrapper-box input {
+  width: 100%;
+  height: 40px; /* 设定固定高度 */
   background-color: #6b4b91;
-  outline:none;
+  outline: none;
   border: 2px solid rgb(238, 255, 0);
 }
-.input-box input::-placeholder{
+
+.input-box input::-placeholder {
   color: aliceblue;
 }
-.input-box i{
-  position:  absolute;
+
+.input-box i {
+  position: absolute;
   right: 28px;
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
-  font-size: 14.Spx;
+  font-size: 14px; /* 正确的字体大小 */
   margin: -15px 0 15px;
 }
-.remember-forget label input{
-  color:#fff;
+
+.remember-forget label input {
+  color: #fff;
   margin-right: 3px;
 }
-.remember-forget a{
+
+.remember-forget a {
   color: #fff;
-  text-decoration-color: none;
+  text-decoration: none; /* 去掉下划线 */
 }
-.remember-forget.btn{
+
+.remember-forget.btn {
   width: 100%;
   height: 45px;
   background-color: #fff;
@@ -56,7 +64,8 @@ body {
   color: #333;
   font-weight: 600;
 }
-.wrapper.register-link{
+
+.wrapper.register-link {
   font-size: 14.5px;
   text-align: center;
   margin: 20px 0 15px;
@@ -73,21 +82,22 @@ body {
 
 h2 {
   text-align: center;
-  color: rgb(173, 184, 19);
+  color: rgb(184, 179, 19);
 }
 
 table {
   width: 100%;
-  border-collapse: collapse; /* 合併表格邊框 */
+  border-collapse: collapse; /* 合并表格边框 */
   margin-top: 20px;
 }
+
 .divider {
-  border-top: 2px solid rgb(84, 38, 99); /* 創建一條黑色的上邊框 */
-  margin: 20px 0; /* 添加上下邊距 */
+  border-top: 2px solid rgb(84, 38, 99); /* 创建一条黑色的上边框 */
+  margin: 20px 0; /* 添加上下边距 */
 }
 
 th {
-  background-color: #ccbb25; /* 標題行背景顏色 */
+  background-color: #ccbb25; /* 标题行背景颜色 */
   color: white;
   padding: 12px;
   text-align: left;
@@ -95,19 +105,19 @@ th {
 
 td {
   padding: 12px;
-  border: 1px solid #ddd; /* 單元格邊框顏色 */
+  border: 1px solid #ddd; /* 单元格边框颜色 */
 }
 
 tbody tr {
-  transition: background-color 0.3s; /* 添加過渡效果 */
+  transition: background-color 0.3s; /* 添加过渡效果 */
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* 偶數行背景顏色 */
+  background-color: #f9f9f9; /* 偶数行背景颜色 */
 }
 
 tbody tr:hover {
-  background-color: #e0f7fa; /* 懸停行的背景顏色 */
+  background-color: #e0f7fa; /* 悬停行的背景颜色 */
 }
 
 label {
