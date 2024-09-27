@@ -17,7 +17,7 @@
         header {
             width: 100%;
             background-color: #373737;
-            padding: 10px 20px;
+            padding: 5px 10px; /* 进一步缩小头部内边距 */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -26,6 +26,7 @@
         .header-title {
             color: #ffffff;
             margin: 0;
+            font-size: 12px; /* 进一步减小标题字体大小 */
         }
 
         nav {
@@ -35,7 +36,8 @@
         nav a {
             text-decoration: none;
             color: #fff;
-            padding: 15px 25px;
+            padding: 4px 8px; /* 进一步缩小导航链接内边距 */
+            font-size: 10px; /* 进一步缩小导航链接字体大小 */
             transition: background-color 0.3s;
         }
 
@@ -49,19 +51,21 @@
         }
 
         .search-box {
-            padding: 10px;
+            padding: 3px; /* 进一步缩小搜索框内边距 */
             border: none;
             border-radius: 5px;
-            margin-right: 10px;
+            margin-right: 3px; /* 减小搜索框与按钮之间的间距 */
+            font-size: 8px; /* 进一步缩小搜索框字体大小 */
         }
 
         .search-button {
-            padding: 10px 15px;
+            padding: 3px 5px; /* 进一步缩小搜索按钮内边距 */
             background-color: #2196f3;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 8px; /* 进一步缩小按钮字体大小 */
             transition: background-color 0.3s;
         }
 
@@ -69,34 +73,116 @@
             background-color: #1976d2;
         }
 
-        .alarm-container {
-            margin-top: 20px;
+        /* 用户头像样式 */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 3px; /* 进一步缩小用户信息部分的内边距 */
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            margin-top: 8px; /* 减小用户信息部分的上边距 */
+        }
+
+        .avatar {
+            position: relative;
+            width: 28px; /* 进一步缩小头像大小 */
+            height: 28px; /* 进一步缩小头像大小 */
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 4px; /* 减少头像与文本之间的间距 */
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .online-status {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 6px; /* 进一步缩小在线状态指示器 */
+            height: 6px; /* 进一步缩小在线状态指示器 */
+            border-radius: 50%;
+            background-color: green;
+            border: 1px solid white;
+        }
+
+        .offline {
+            background-color: red;
+        }
+
+        .user-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        .alarm-input {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
+        .username {
+            font-weight: bold;
+            margin: 0;
+            font-size: 9px; /* 进一步缩小用户名字体大小 */
         }
 
-        .set-alarm-button {
-            padding: 10px 15px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
+        .status {
+            font-size: 7px; /* 进一步缩小状态字体大小 */
+            color: #666;
+        }
+
+        /* 设置部分样式 */
+        .settings-container {
+            position: fixed; /* 使用 fixed 定位 */
+            top: 60px; /* 距离顶部的距离 */
+            right: 10px; /* 距离右侧的距离 */
+            background-color: #fff;
+            padding: 4px; /* 进一步缩小设置部分的内边距 */
             border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* 确保设置部分在最上层 */
+            max-width: 180px; /* 限制最大宽度 */
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #2196f3; /* 选项卡底部边框 */
+            margin-bottom: 4px; /* 选项卡与内容之间的间距 */
+        }
+
+        .tab {
+            flex: 1;
+            padding: 2px; /* 进一步缩小选项卡的内边距 */
             cursor: pointer;
+            text-align: center;
+            color: #2196f3;
+            font-size: 8px; /* 进一步缩小选项卡字体大小 */
             transition: background-color 0.3s;
         }
 
-        .set-alarm-button:hover {
-            background-color: #388e3c;
+        .tab:hover {
+            background-color: #e0f7fa;
         }
 
+        .tab.active {
+            font-weight: bold;
+            border-bottom: 2px solid #4caf50;
+        }
+
+        .section {
+            display: none; /* 默认隐藏 */
+            border: 1px solid #2196f3; /* 边框 */
+            border-radius: 5px; /* 边框圆角 */
+            padding: 2px; /* 进一步缩小内容部分的内边距 */
+            margin-top: 3px; /* 缩小内容部分的上边距 */
+            background-color: #fff; /* 背景颜色 */
+            font-size: 8px; /* 进一步缩小内容字体大小 */
+        }
+
+        .section.active {
+            display: block; /* 显示当前活动的部分 */
+        }
+
+        /* 其他样式 */
         section {
             height: 100vh;
             display: flex;
@@ -104,7 +190,7 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            padding: 30px;
+            padding: 20px; /* 缩小内容区域的内边距 */
         }
 
         #css {
@@ -130,122 +216,26 @@
         /* 闹钟图像样式 */
         .alarm-image {
             display: none;
-            width: 100px;
-            margin-top: 20px;
+            width: 50px; /* 进一步缩小闹钟图像大小 */
+            margin-top: 5px; /* 减小图像与按钮之间的间距 */
         }
 
         /* 学习历史记录样式 */
         .history-container {
-            margin-top: 20px;
+            margin-top: 8px; /* 学习历史记录的上边距 */
             background-color: #fff;
-            padding: 10px;
+            padding: 4px; /* 进一步缩小学习历史记录部分的内边距 */
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            max-width: 180px; /* 限制最大宽度 */
             text-align: left;
         }
 
         .history-item {
-            margin: 5px 0;
-            padding: 5px;
+            margin: 1px 0; /* 历史记录项的间距 */
+            padding: 1px; /* 历史记录项的内边距 */
             border-bottom: 1px solid #ddd;
-        }
-
-        /* 用户头像样式 */
-        .profile-container {
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        .avatar {
-            position: relative;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 10px;
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .online-status {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: green;
-            border: 2px solid white;
-        }
-
-        .offline {
-            background-color: red;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .username {
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .status {
-            font-size: 12px;
-            color: #666;
-        }
-
-        /* 设置部分样式 */
-        .settings-container {
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .tabs {
-            display: flex;
-            border-bottom: 2px solid #2196f3;
-            margin-bottom: 20px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 10px;
-            cursor: pointer;
-            text-align: center;
-            color: #2196f3;
-            transition: background-color 0.3s;
-        }
-
-        .tab:hover {
-            background-color: #e0f7fa;
-        }
-
-        .tab.active {
-            font-weight: bold;
-            border-bottom: 2px solid #4caf50;
-        }
-
-        .section {
-            display: none; /* 默认隐藏 */
-        }
-
-        .section.active {
-            display: block; /* 显示当前活动的部分 */
+            font-size: 7px; /* 进一步缩小历史记录项字体大小 */
         }
     </style>
 </head>
@@ -268,49 +258,49 @@
 
     <div class="profile-container">
         <div class="avatar">
-            <img src="https://via.placeholder.com/150" alt="用户头像"> <!-- 替换为用户头像的URL -->
+            <img src="https://via.placeholder.com/150" alt="用户頭像"> <!-- 替换为用户头像的URL -->
             <div class="online-status offline"></div> <!-- 默认离线状态 -->
         </div>
         <div class="user-info">
-            <p class="username">用户名称</p>
-            <p class="status">状态: <span id="online-text">离线</span></p>
+            <p class="username">用户名稱</p>
+            <p class="status">狀態: <span id="online-text">離線</span></p>
         </div>
     </div>
 
     <div class="settings-container">
-        <h3>设置</h3>
+        <h3 style="font-size: 9px;">設定置</h3> <!-- 设置部分标题字体大小 -->
         <div class="tabs">
-            <div class="tab active" data-tab="history">历史记录</div>
-            <div class="tab" data-tab="alarm">闹钟</div>
+            <div class="tab active" data-tab="history">歷史記錄</div>
+            <div class="tab" data-tab="alarm">鬧鐘</div>
             <div class="tab" data-tab="info">信息查看</div>
             <div class="tab" data-tab="faq">解答问题</div>
         </div>
 
-        <div id="history" class="section active">
-            <h3>学习历史记录</h3>
-            <input type="text" id="learning-input" placeholder="输入学习内容">
-            <button id="add-learning" class="set-alarm-button">添加到历史记录</button>
-            <div id="history-list"></div> <!-- 历史记录列表 -->
+        <div id="history" class="section active" style="border-color: #4caf50;"> <!-- 边框颜色：绿色 -->
+            <h3 style="font-size: 8px;">學習歷史紀錄</h3> <!-- 学习历史记录标题字体大小 -->
+            <input type="text" id="learning-input" placeholder="输入学习内容" style="font-size: 7px;"> <!-- 学习输入框字体大小 -->
+            <button id="add-learning" class="set-alarm-button" style="font-size: 7px;">添加歷史紀錄</button> <!-- 添加历史记录按钮字体大小 -->
+            <div id="history-list"></div> 
         </div>
 
-        <div id="alarm" class="section">
-            <h3>闹钟设置</h3>
-            <input type="time" id="alarm-time" class="alarm-input">
-            <button class="set-alarm-button" id="set-alarm">设置闹钟</button>
+        <div id="alarm" class="section" style="border-color: #ff9800;"> <!-- 边框颜色：橙色 -->
+            <h3 style="font-size: 8px;">鬧鐘設定</h3> <!-- 闹钟设置标题字体大小 -->
+            <input type="time" id="alarm-time" class="alarm-input" style="font-size: 7px;"> <!-- 闹钟时间输入框字体大小 -->
+            <button class="set-alarm-button" id="set-alarm" style="font-size: 7px;">设置闹钟</button> <!-- 设置闹钟按钮字体大小 -->
             <img id="alarm-image" class="alarm-image" src="https://example.com/alarm-clock.png" alt="闹钟图像"> <!-- 替换为您的闹钟图像URL -->
         </div>
 
-        <div id="info" class="section">
-            <h3>信息查看</h3>
-            <p>这是一些基本信息...</p>
+        <div id="info" class="section" style="border-color: #2196f3;"> <!-- 边框颜色：蓝色 -->
+            <h3 style="font-size: 8px;">信息查看</h3> <!-- 信息查看标题字体大小 -->
+            <p style="font-size: 7px;">这是一些基本信息...</p> <!-- 信息内容字体大小 -->
         </div>
 
-        <div id="faq" class="section">
-            <h3>解答问题</h3>
-            <p>如果您有问题，请在此处输入：</p>
-            <input type="text" id="faq-input" placeholder="输入问题内容">
-            <button id="submit-question" class="set-alarm-button">提交问题</button>
-            <div id="faq-response"></div> <!-- 问题回答列表 -->
+        <div id="faq" class="section" style="border-color: #f44336;"> <!-- 边框颜色：红色 -->
+            <h3 style="font-size: 8px;">解答問題</h3> <!-- 解答问题标题字体大小 -->
+            <p style="font-size: 7px;">如果您有問题，請在此輸入：</p>
+            <input type="text" id="faq-input" placeholder="輸入問題內容" style="font-size: 7px;"> <!-- 问题输入框字体大小 -->
+            <button id="submit-question" class="set-alarm-button" style="font-size: 7px;">提交問题</button> <!-- 提交问题按钮字体大小 -->
+            <div id="faq-response"></div>
         </div>
     </div>
 
@@ -346,27 +336,25 @@
         const learningInput = document.getElementById('learning-input');
         const addLearningButton = document.getElementById('add-learning');
 
-        // 存储学习历史记录
         const learningHistory = [];
 
         alarmButton.addEventListener('click', () => {
             const alarmTime = alarmTimeInput.value;
             if (alarmTime) {
-                alert(`闹钟设置为 ${alarmTime}`);
+                alert(`鬧鐘設置为 ${alarmTime}`);
             } else {
-                alert('请选择闹钟时间');
+                alert('請選擇鬧鐘時間');
             }
         });
 
         addLearningButton.addEventListener('click', () => {
             const learningContent = learningInput.value;
             if (learningContent) {
-                // 添加到历史记录
                 learningHistory.push(learningContent);
                 updateHistoryDisplay();
-                learningInput.value = ''; // 清空输入框
+                learningInput.value = ''; 
             } else {
-                alert('请输入学习内容');
+                alert('請輸入學習內容');
             }
         });
 
@@ -408,10 +396,10 @@
             const isOnline = Math.random() > 0.5; // 随机生成在线状态
             if (isOnline) {
                 onlineStatusIndicator.classList.remove('offline');
-                onlineText.textContent = '在线';
+                onlineText.textContent = '在線';
             } else {
                 onlineStatusIndicator.classList.add('offline');
-                onlineText.textContent = '离线';
+                onlineText.textContent = '離線';
             }
         }, 3000); // 每3秒切换一次状态
 
@@ -423,11 +411,10 @@
         submitQuestionButton.addEventListener('click', () => {
             const question = faqInput.value;
             if (question) {
-                // 这里可以添加逻辑来处理问题，比如显示问题或调用API
                 faqResponse.innerHTML += `<div>${question}</div>`;
-                faqInput.value = ''; // 清空输入框
+                faqInput.value = ''; 
             } else {
-                alert('请输入问题内容');
+                alert('請輸入問題內容');
             }
         });
     </script>
